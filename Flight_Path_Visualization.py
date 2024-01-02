@@ -1,9 +1,5 @@
 from PIL import Image, ImageDraw
 
-# 비행 명령 리스트
-path = [[0,300], [-90,50], [-180, 50]]
-    
-
 def flight_path(path):
     # path는 비행 경로를 2차원 행렬로 입력받음.
     xy = {0:[1,0], -180:[-1,0], 90:[0,-1], -90:[0,1]}
@@ -28,9 +24,7 @@ def flight_path(path):
         
         pre_position[0]+=x; pre_position[1]+=y
 
-    img.save('polygon.png')
+    img.save('flight_path_img.png')
     img.show()
 
     return img
-
-flight_path(path)
