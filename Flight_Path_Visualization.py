@@ -4,7 +4,7 @@ def flight_path(path):
     # path는 비행 경로를 2차원 행렬로 입력받음.
     xy = {0:[1,0], -180:[-1,0], 90:[0,-1], -90:[0,1]}
 
-    # 맵 만들기 + 안전 구역 그리기
+    # 맵 만들기 + 안전 구역 그리기.
     img = Image.new('RGB', (500, 500), color = 'white')
     draw = ImageDraw.Draw(img)
 
