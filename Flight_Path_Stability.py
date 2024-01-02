@@ -28,9 +28,7 @@ def stability(api_key, path):
             "content": [
             {
                 "type": "text",
-                "text": """만약 이미지 내의 빨간색 선이 파란색 사각형 바깥으로 나갔다면 다른 부연 설명 없이 'no'라고 얘기해줘.
-                아니라면 다른 부연 설명 없이 'yes'라고 얘기해줘.
-                이때 알파벳은 무조건 소문자로 사용해줘."""
+                "text": """If the red line in the image goes outside the blue square, say 'no' without further explanation. If not, just say ‘yes’ without further explanation. At this time, always use lowercase letters."""
             },
             {
                 "type": "image_url",
@@ -50,4 +48,7 @@ def stability(api_key, path):
     # 'content' 부분만 추출하여 출력.
     content = response.json()['choices'][0]['message']['content']
 
-    return content
+    if content == 'yes':
+         return True
+    elif content == 'no':
+         return False
