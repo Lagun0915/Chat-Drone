@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw
 
 def flight_path(path):
     # path는 비행 경로를 2차원 행렬로 입력받음.
-    xy = {0:[1,0], -180:[-1,0], 90:[0,-1], -90:[0,1]}
+    xy = {0:[1,0], 1:[0,1], 2:[-1,0], 3:[0,-1]}
 
     # 맵 만들기 + 안전 구역 그리기.
     img = Image.new('RGB', (500, 500), color = 'white')
@@ -12,10 +12,11 @@ def flight_path(path):
 
     # 드론의 시작 위치.
     pre_position=[100,100]
+    pre_angle = 0
 
     for pin in path:
         angle, distance = pin
-        x,y = xy[angle]
+        x,y = xy[(pre_angle+angle)//90%4]
         x=x*distance; y=y*distance
         
         # 비행 경로는 빨간색으로 그림.
@@ -23,6 +24,7 @@ def flight_path(path):
                 fill='red', width=5)
         
         pre_position[0]+=x; pre_position[1]+=y
+        pre_angle=(pre_angle+angle)%360
 
     img.save('flight_path_img.png')
     img.show()
