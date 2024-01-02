@@ -47,7 +47,7 @@ def stability(api_key, path):
     response = requests.post("https://api.openai.com/v1/chat/completions",
     headers=headers, json=payload)
 
-    # 'content' 부분만 추출하여 출력
+    # 'content' 부분만 추출하여 출력.
     content = response.json()['choices'][0]['message']['content']
 
     return content
