@@ -28,7 +28,7 @@ def stability(api_key, path):
             "content": [
             {
                 "type": "text",
-                "text": """If the red line in the image goes outside the blue square, say 'no' without further explanation. If not, just say ‘yes’ without further explanation. At this time, always use lowercase letters."""
+                "text": """만약 이미지에 빨간색이 있다면 'no'라고 대답해줘. 없다면 'yes'라고 대답해줘. 대답은 항상 소문자여야 해. 다른 부연 설명은 하지 말아줘."""
             },
             {
                 "type": "image_url",
