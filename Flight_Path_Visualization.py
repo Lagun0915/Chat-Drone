@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw
 
-def flight_path(path):
+def flight_path(path, file_name):
     # path는 비행 경로를 2차원 행렬로 입력받음.
     xy = {0:[1,0], 1:[0,1], 2:[-1,0], 3:[0,-1]}
 
@@ -26,7 +26,7 @@ def flight_path(path):
         pre_position[0]+=x; pre_position[1]+=y
         pre_angle=(pre_angle+angle)%360
 
-    img.save('flight_path_img.png')
-    img.show()
+    img.save(f'flight_path_{file_name}.png')
+    # img.show()
 
     return img
