@@ -8,8 +8,6 @@ def flight_path(path, file_name):
     img = Image.new('RGB', (500, 500), color = 'white')
     draw = ImageDraw.Draw(img)
 
-    draw.rectangle([90, 90, 410, 410], outline='blue', width=5)
-
     # 드론의 시작 위치.
     pre_position=[100,100]
     pre_angle = 0
@@ -25,6 +23,8 @@ def flight_path(path, file_name):
         
         pre_position[0]+=x; pre_position[1]+=y
         pre_angle=(pre_angle+angle)%360
+        
+    draw.rectangle([90, 90, 410, 410], outline='white', fill='white')
 
     img.save(f'flight_path_{file_name}.png')
     # img.show()
