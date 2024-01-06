@@ -10,7 +10,7 @@ def recognition(drone_img):
         with open(image_path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode('utf-8')
 
-    base64_img = encode_image(f'{drone_img}.png')
+    base64_img = encode_image(drone_img)
 
     headers = {
         "Content-Type": "application/json",
