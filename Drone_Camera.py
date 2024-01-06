@@ -11,6 +11,6 @@ def camera(drone):
     frame = frame_reader.frame
     frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
-    cv2.imwrite("beta_drone_img.png", frame)
+    cv2.imwrite("drone_img.png", frame)
     
     drone.streamoff()
