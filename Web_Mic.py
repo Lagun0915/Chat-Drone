@@ -34,6 +34,7 @@ class Web_Mic_Controler(object):
         stream.stop_stream()
         stream.close()
         audio.terminate()
+        self.stop_stream = False
         
         # wav 파일 저장.
         waveFile = wave.open(FILE_NAME, 'wb')
@@ -51,7 +52,7 @@ class Web_Mic_Controler(object):
         # 음성 파일의 음성을 문자로 변환
         openai.api_key = CHAT_GPT()
 
-        with open('C:\\Projects\\Chat-Drone\\recording_tset.wav', 'rb') as audio_file:
+        with open('C:\\Projects\\Chat-Drone\\recording.wav', 'rb') as audio_file:
             transcript = openai.Audio.transcribe(
                 model="whisper-1",
                 file=audio_file)
